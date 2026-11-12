@@ -8,4 +8,4 @@ The website at https://whatbadge.com, served by GitHub Pages from this repositor
 
 ## Updates show up right away
 
-Every push to `main` runs `bump.py` (via the GitHub Action in `.github/workflows`). It stamps a new version on the page and on each video and image, so visitors with an old copy cached get the new one automatically on their next visit. To do it by hand: `python3 bump.py`, then commit and push.
+Every push to `main` runs `bump.py` (via the GitHub Action in `.github/workflows`). It stamps a new version on the page and on each video and image, so visitors with an old copy cached get the new one automatically on their next visit, with no refresh needed. To do it by hand: `python3 bump.py`, then commit and push.
