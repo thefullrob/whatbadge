@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>WHAT™ Badge</title>
+<meta property="og:title" content="WHAT™ | Talk from any room">
+<meta property="og:description" content="A small badge you wear. Say a name and talk, from anywhere in the house. Reserve a pair for $10, fully refundable.">
+<meta property="og:image" content="https://whatbadge.com/hero-badges.jpg">
+<meta property="og:url" content="https://whatbadge.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="WHAT™ is a small badge you wear. Say a name and talk, from any room. Reserve a pair for $10, fully refundable.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">
+<style>
+/* Layout: a quiet, roomy single column of "rooms" (bands) with the badge itself as the one bold object. */
+:root{
+  --paper:#F2F0EB;      /* the soft wall-white of the product photo */
+  --paper-2:#E8E5DE;    /* a deeper band */
+  --ink:#151719;        /* matte badge black */
+  --muted:#565B60;
+  --steel:#A7ACB1;      /* the rim */
+  --green:#1F6F43;      /* the WHAT label green from the ads */
+  --green-ink:#FFFFFF;
+  --line:rgba(21,23,25,.14);
+  --card:#FBFAF7;
+  --rv-bg:#151719;      /* the reserve band stays badge-black in both themes */
+  --rv-fg:#F2F0EB;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Atkinson Hyperlegible", "Verdana", "Segoe UI", system-ui, sans-serif;
+  --step-0:1.1875rem;   /* 19px base, sized for readers 55+ */
+  --step-1:1.4rem;
+  --step-2:1.85rem;
+  --step-3:clamp(2.2rem, 5.2vw, 3.6rem);
+  --step-4:clamp(2.6rem, 7vw, 4.6rem);
+  --radius:14px;
+  --wrap:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#121416; --paper-2:#1A1D20; --ink:#ECEAE5; --muted:#AEB3B7; --steel:#6F767C;
+    --green:#4FB27D; --green-ink:#0D1A12; --line:rgba(236,234,229,.16); --card:#1C1F22; --rv-bg:#08090A; --rv-fg:#ECEAE5; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121416; --paper-2:#1A1D20; --ink:#ECEAE5; --muted:#AEB3B7; --steel:#6F767C;
+  --green:#4FB27D; --green-ink:#0D1A12; --line:rgba(236,234,229,.16); --card:#1C1F22; --rv-bg:#08090A; --rv-fg:#ECEAE5; color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:var(--step-0);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+.tm{font-size:.5em;vertical-align:.9em;letter-spacing:0;font-weight:500}
+
+/* Preview notice (shows only while payment/email links are empty) */
+.preview{background:var(--ink);color:var(--paper);font-size:.95rem}
+.preview .wrap{padding-block:10px;display:flex;gap:8px;flex-wrap:wrap}
+.preview b{font-weight:700}
+
+/* Header */
+header.top{border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.mark{font-family:var(--display);font-weight:800;font-size:1.6rem;letter-spacing:-.03em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.mark-dot{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #3a3d40, #121314 70%);box-shadow:0 0 0 2.5px #C9CDD1, 0 0 0 3.5px #8E9398}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--body);font-weight:700;font-size:1.1rem;line-height:1.2;border-radius:999px;padding:16px 28px;text-decoration:none;border:2px solid transparent;cursor:pointer;min-height:56px}
+.btn-primary{background:var(--green);color:var(--green-ink)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-sm{padding:10px 18px;min-height:44px;font-size:1rem}
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(36px,6vw,80px)}
+.eyebrow{font-weight:700;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:16px}
+.hero h1{font-size:var(--step-4);font-weight:800}
+.hero .sub{font-size:var(--step-1);line-height:1.45;color:var(--muted);margin-top:20px;max-width:34ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;align-items:center}
+.hero .fine{font-size:1rem;color:var(--muted);margin-top:12px}
+.media{min-width:0}
+.media figure{margin:0}
+.media video,.media img{display:block;width:100%;max-width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);background:#000}
+.media figcaption{font-size:1rem;color:var(--muted);margin-top:10px}
+
+/* Bands */
+section.band{padding-block:clamp(56px,8vw,104px)}
+section.alt{background:var(--paper-2)}
+.kicker{font-size:var(--step-3);font-weight:800}
+.lede{font-size:var(--step-1);color:var(--muted);margin-top:16px;max-width:40ch;line-height:1.45}
+
+/* How it works: the badge as the signature object */
+.how{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center}
+.vs{display:grid;gap:6px;margin-top:28px;font-size:var(--step-1)}
+.vs s{color:var(--muted);text-decoration-thickness:2px}
+.vs strong{font-family:var(--display);font-weight:800}
+.steps{list-style:none;padding:0;margin:36px 0 0;display:flex;gap:12px;flex-wrap:wrap}
+.steps li{display:flex;align-items:baseline;gap:10px;font-family:var(--display);font-weight:800;font-size:var(--step-2);letter-spacing:-.02em}
+.steps li span{font-family:var(--body);font-weight:700;font-size:1rem;color:var(--green)}
+.steps li:not(:last-child)::after{content:"";width:28px;height:2px;background:var(--line);align-self:center;margin-left:4px}
+
+.badge-stage{position:relative;display:grid;place-items:center;aspect-ratio:1/1;max-width:420px;width:100%;margin:0 auto}
+.ring{position:absolute;inset:22%;border-radius:50%;border:2px solid var(--green);opacity:0;animation:pulse 2.4s ease-out infinite}
+.ring:nth-child(2){animation-delay:.8s}
+.ring:nth-child(3){animation-delay:1.6s}
+@keyframes pulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.75);opacity:0}}
+@media (prefers-reduced-motion: reduce){.ring{animation:none;opacity:.25}.ring:nth-child(2){transform:scale(1.3);opacity:.15}.ring:nth-child(3){transform:scale(1.6);opacity:.08}}
+.badge{position:relative;width:56%;aspect-ratio:1/1;border-radius:50%;
+  background:radial-gradient(circle at 34% 28%, #44484c 0%, #1b1d1f 46%, #0c0d0e 100%);
+  box-shadow:0 0 0 6px #D6D9DC, 0 0 0 8px #8D9297, 0 0 0 9px #5d6266, 0 24px 48px rgba(0,0,0,.28), inset 0 2px 6px rgba(255,255,255,.08)}
+.badge-label{position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);font-size:.95rem;color:var(--muted);white-space:nowrap}
+
+/* Outside / inside */
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:40px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(24px,3.5vw,40px);min-width:0}
+.panel .tag{font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.panel h3{font-size:var(--step-2);font-weight:800;margin-top:8px}
+.panel p{margin-top:14px}
+.panel ul{margin:14px 0 0;padding-left:1.1em;display:grid;gap:10px}
+
+/* Why */
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px);margin-top:40px}
+.why div{border-top:3px solid var(--ink);padding-top:18px;min-width:0}
+.why h3{font-size:var(--step-1);font-weight:700}
+.why p{margin-top:8px;color:var(--muted)}
+
+/* The badge spec */
+.spec{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.spec img{width:100%;max-width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);display:block}
+.spec dl{display:grid;grid-template-columns:auto 1fr;gap:14px 24px;margin:28px 0 0}
+.spec dt{font-weight:700;color:var(--muted);font-size:1rem;text-transform:uppercase;letter-spacing:.06em;padding-top:3px}
+.spec dd{margin:0}
+
+/* The commercials */
+.ads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,32px);margin-top:40px}
+.ads figure{margin:0;min-width:0}
+.ads video{display:block;width:100%;max-width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);background:#000}
+.ads figcaption{margin-top:12px}
+.ads figcaption b{display:block;font-family:var(--display);font-weight:700;font-size:var(--step-1)}
+.ads figcaption span{color:var(--muted)}
+@media (max-width: 860px){.ads{grid-template-columns:minmax(0,1fr)}}
+
+/* Reserve */
+.reserve{background:var(--rv-bg);color:var(--rv-fg)}
+.reserve .wrap{padding-block:clamp(56px,8vw,104px)}
+.offer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.price{font-family:var(--display);font-weight:800;font-size:clamp(4rem,12vw,7.5rem);line-height:.9;letter-spacing:-.04em}
+.price-note{font-size:var(--step-1);margin-top:12px;opacity:.85}
+.reserve h2{font-size:var(--step-3);font-weight:800}
+.reserve .fine{margin-top:14px;opacity:.8}
+.reserve .btn-primary{margin-top:28px}
+.reserve .notice{margin-top:16px;padding:14px 16px;border-radius:10px;background:rgba(255,255,255,.08);font-size:1rem}
+.extras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;margin-top:56px}
+.extra{border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);padding:28px;min-width:0}
+.extra h3{font-size:var(--step-1);font-weight:700}
+.extra p{margin-top:8px;opacity:.85}
+form.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+form.row label{flex:1 1 100%;font-size:.95rem;opacity:.85}
+input[type=email],input[type=number],input[type=text]{flex:1 1 220px;min-width:0;font:inherit;font-size:1.05rem;padding:14px 16px;border-radius:12px;border:2px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:inherit;min-height:56px}
+input::placeholder{color:inherit;opacity:.55}
+.form-msg{flex:1 1 100%;font-size:1rem;min-height:1.4em}
+.reserve .btn-ghost{color:var(--rv-fg);border-color:var(--rv-fg)}
+.reserve .btn-ghost:hover{background:var(--rv-fg);color:var(--rv-bg)}
+
+/* FAQ */
+.faq{margin-top:32px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:22px 0;font-weight:700;font-size:var(--step-1)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--display);font-size:1.6rem;line-height:1;color:var(--green)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 22px;max-width:62ch;color:var(--muted)}
+
+/* Footer */
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:36px 120px;display:grid;gap:12px;font-size:1rem;color:var(--muted)}
+.contact{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.contact code{font-family:var(--body);font-size:1rem;color:var(--ink);user-select:all}
+
+/* Phone: sticky reserve bar */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--paper);border-top:1px solid var(--line);
+  padding:10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));display:none}
+.sticky .btn{width:100%}
+
+@media (max-width: 860px){
+  .hero .wrap,.how,.spec,.offer{grid-template-columns:minmax(0,1fr)}
+  .hero .media{order:-1}
+  .why,.pair{grid-template-columns:minmax(0,1fr)}
+  .sticky{display:block}
+  .badge-stage{max-width:300px}
+  .steps{gap:8px 22px}
+  .steps li:not(:last-child)::after{display:none}
+}
+</style>
+</head>
+<body>
+<div class="preview" id="preview" hidden>
+  <div class="wrap"><b>Preview.</b><span id="previewText"></span></div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="WHAT home"><span class="mark-dot" aria-hidden="true"></span>WHAT<span class="tm">™</span></a>
+    <a class="btn btn-primary btn-sm js-reserve" href="#reserve">Reserve for $10</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" id="eyebrow">In-Home Direct Communication™</p>
+        <h1 id="headline">Talk to each other from anywhere in the house.</h1>
+        <p class="sub" id="sub">WHAT™ is a small badge you wear. Just say your spouse’s name and start talking. They hear you clearly, whether they’re downstairs, in the garage, or out on the lanai.</p>
+        <div class="ctas">
+          <a class="btn btn-primary js-reserve" href="#reserve">Reserve a pair for $10</a>
+          <a class="btn btn-ghost" href="#commercials">Watch the commercials</a>
+        </div>
+        <p class="fine">Fully refundable at any time.</p>
+      </div>
+      <div class="media" id="media"></div>
+    </div>
+  </section>
+
+  <section class="band alt" id="how">
+    <div class="wrap how">
+      <div>
+        <h2 class="kicker">The simplest communication device on earth.</h2>
+        <div class="vs">
+          <p>Phones need apps.</p>
+          <p>Smart speakers need Wi-Fi.</p>
+          <p>Intercoms need wiring.</p>
+          <p><strong>WHAT™ needs just a name.</strong></p>
+        </div>
+        <ol class="steps" aria-label="How to use it">
+          <li><span>1</span>Say a name.</li>
+          <li><span>2</span>Talk.</li>
+          <li><span>3</span>Done.</li>
+        </ol>
+      </div>
+      <div class="badge-stage" aria-hidden="true">
+        <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+        <span class="badge"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 class="kicker">Nothing to learn. Serious engineering.</h2>
+      <div class="pair">
+        <div class="panel">
+          <p class="tag">On the outside</p>
+          <h3>No buttons. Nothing to learn.</h3>
+          <p>No screen, no menus, no passwords, nothing to press. Pin it on and talk.</p>
+        </div>
+        <div class="panel">
+          <p class="tag">On the inside</p>
+          <h3>Patent pending.</h3>
+          <ul>
+            <li>Two-way voice recognition: your message reaches only the person you named, and they know it’s really you.</li>
+            <li>Badges connect directly to each other, with no Wi-Fi, phone, or internet.</li>
+            <li>Conversations stay inside your home.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt">
+    <div class="wrap">
+      <h2 class="kicker" id="whyTitle">Why couples like it</h2>
+      <div class="why" id="why"></div>
+    </div>
+  </section>
+
+  <section class="band" id="commercials">
+    <div class="wrap">
+      <h2 class="kicker">Watch the commercials</h2>
+      <p class="lede">Three homes, two badges each, no shouting.</p>
+      <div class="ads">
+        <figure>
+          <video controls playsinline preload="none" poster="poster-couples.jpg"><source src="ad-couples.mp4" type="video/mp4"></video>
+          <figcaption><b>Help with the groceries</b><span>Julie’s unloading the car. Brad’s watching the game. She asks once, in a normal voice.</span></figcaption>
+        </figure>
+        <figure>
+          <video controls playsinline preload="none" poster="poster-family.jpg"><source src="ad-family.mp4" type="video/mp4"></video>
+          <figcaption><b>The gift</b><span>Karen pins a badge on her mom. Mom says Dad’s name, and he answers from his study.</span></figcaption>
+        </figure>
+        <figure>
+          <video controls playsinline preload="none" poster="poster-tom-linda.jpg"><source src="ad-tom-linda.mp4" type="video/mp4"></video>
+          <figcaption><b>Tom and Linda</b><span>Tom’s cooking in the kitchen. Linda’s in her chair in the den. They talk like they’re in the same room.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt">
+    <div class="wrap spec">
+      <img src="wearing-badge.jpg" alt="Helen and her daughter laughing at the kitchen table, Helen wearing her WHAT badge just above the left breast" width="1280" height="720" loading="lazy">
+      <div>
+        <h2 class="kicker">Two badges. One for each of you.</h2>
+        <p class="lede">One badge needs another to talk to, so WHAT™ comes as a pair.</p>
+        <dl>
+          <dt>Size</dt><dd>About 38 mm across, the size of a watch face. Thin and flat.</dd>
+          <dt>Look</dt><dd>Matte black face with a polished stainless steel rim.</dd>
+          <dt>Wear it</dt><dd>Pinned just above the left breast, like a pendant.</dd>
+          <dt>Controls</dt><dd>None. Say a name and talk.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="reserve" id="reserve">
+    <div class="wrap">
+      <div class="offer">
+        <div>
+          <p class="price">$229</p>
+          <p class="price-note" id="priceNote">Two badges, one for each of you.</p>
+        </div>
+        <div>
+          <h2>Be one of the first homes with WHAT™</h2>
+          <p class="fine">Reserve a two-pack for $10. Fully refundable at any time. Locks in our best launch price. Nobody is charged the full price until we have a ship date.</p>
+          <a class="btn btn-primary" id="reserveBtn" href="#reserve">Reserve for $10</a>
+          <p class="notice" id="reserveNotice" hidden>Reservations open soon. Leave your email below and we’ll send you the link the day they open.</p>
+        </div>
+      </div>
+
+      <div class="extras">
+        <div class="extra">
+          <h3>Get updates</h3>
+          <p>We’ll email you when WHAT™ is ready. No spam.</p>
+          <form class="row js-email" data-kind="updates" novalidate>
+            <label for="email-updates">Your email</label>
+            <input id="email-updates" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <button class="btn btn-ghost" type="submit">Get updates</button>
+            <p class="form-msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <div class="extra" id="surveyCard">
+          <h3>Help shape WHAT™</h3>
+          <p>Answer a few quick questions. It takes about two minutes.</p>
+          <div class="row" style="display:flex;margin-top:18px"><a class="btn btn-ghost" id="surveyBtn" href="#reserve" target="_blank" rel="noopener">Take the survey</a></div>
+        </div>
+        <div class="extra" id="agencyCard" hidden>
+          <h3>Run a home care agency?</h3>
+          <p>Tell us how many clients you serve and we’ll be in touch about a pilot and agency pricing.</p>
+          <form class="row js-email" data-kind="agency" novalidate>
+            <label for="email-agency">Work email</label>
+            <input id="email-agency" name="email" type="email" autocomplete="email" placeholder="you@agency.com" required>
+            <input id="agency-clients" name="clients" type="number" min="1" inputmode="numeric" placeholder="Number of clients" aria-label="Number of clients">
+            <button class="btn btn-ghost" type="submit">Request agency info</button>
+            <p class="form-msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 class="kicker">Questions</h2>
+      <div class="faq" id="faq"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>WHAT™ Wearable Home Audio Transceiver. WHAT™ is patent pending.</p>
+    <p class="contact">Questions? Email <code id="contactEmail">bradntn@gmail.com</code> <button class="btn btn-ghost btn-sm" type="button" id="copyEmail">Copy</button></p>
+  </div>
+</footer>
+
+<div class="sticky"><a class="btn btn-primary js-reserve" href="#reserve">Reserve a pair for $10</a></div>
+
+<script>
+/* ===== Fill these in to go live ===== */
+const CONFIG = {
+  // Stripe Payment Link for the $10 reservation, e.g. "https://buy.stripe.com/abc123"
+  reserveLink: "",
+  // Form endpoint that collects emails, e.g. a Formspree form "https://formspree.io/f/xxxxxxx"
+  emailEndpoint: "",
+  // Link to the two-minute survey, e.g. a Google Form
+  surveyLink: ""
+};
+/* ==================================== */
+
+const SHARED_FAQ = [
+  ["How does WHAT™ know who’s talking?", "Each badge learns its wearer’s voice. When you say someone’s name, your message goes only to them, and their badge confirms it’s really you. It works both ways, every time."],
+  ["Is the $10 reservation refundable?", "Yes, fully and at any time. Just email us. Reserving locks in our best launch price; there’s no obligation to buy."],
+  ["When will WHAT™ ship?", "We’re finishing the production design now. Reservation holders will hear first, and no one is charged the full price until we have a ship date."],
+  ["What do you do with my email?", "We use it only to send WHAT™ updates. We never sell or share it."]
+];
+
+const VERSIONS = {
+  main: {
+    eyebrow: "In-Home Direct Communication™",
+    headline: "Talk to each other from anywhere in the house.",
+    sub: "WHAT™ is a small badge you wear. Just say your spouse’s name and start talking. They hear you clearly, whether they’re downstairs, in the garage, or out on the lanai.",
+    image: "hero-badges.jpg",
+    caption: "A pair of WHAT™ badges. About the size of a watch face.",
+    whyTitle: "Why couples like it",
+    why: [
+      ["No more shouting between rooms", "Say their name and talk in a normal voice. That’s it."],
+      ["Nothing to set up", "No phone, no app, no Wi-Fi. Two badges talk to each other, and that’s it."],
+      ["You always know who’s talking", "Two-way voice recognition makes sure your words reach the right person, and that they know it’s you."]
+    ],
+    priceNote: "Two badges, one for each of you.",
+    faq: [
+      ["Do we need Wi-Fi or a smartphone?", "No. The two badges talk directly to each other anywhere in your home."],
+      ["How hard is it to use?", "There’s nothing to press. Say the name of the person you want, and talk."],
+      ["Can I give a reservation as a gift?", "Yes. Reserve under your name and we’ll ask for the shipping address at launch."],
+      ["Is this a medical alert device?", "No. WHAT™ is for everyday talking between people in the home. It doesn’t call emergency services."],
+      ["Is WHAT™ a hearing aid?", "No. WHAT™ carries one person’s voice to another person’s badge. It isn’t a hearing aid and doesn’t treat hearing loss."]
+    ]
+  }
+};
+
+const $ = (s) => document.querySelector(s);
+let current = "main";
+
+function el(tag, attrs = {}, text) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (text != null) n.textContent = text;
+  return n;
+}
+
+function render(key) {
+  const v = VERSIONS[key] || VERSIONS.main;
+  current = VERSIONS[key] ? key : "main";
+  $("#eyebrow").textContent = v.eyebrow;
+  $("#headline").textContent = v.headline;
+  $("#sub").textContent = v.sub;
+  $("#whyTitle").textContent = v.whyTitle;
+  $("#priceNote").textContent = v.priceNote;
+  $("#agencyCard").hidden = !v.agency;
+
+  const media = $("#media"); media.replaceChildren();
+  const fig = el("figure");
+  if (v.video) {
+    const vid = el("video", { controls: "", playsinline: "", preload: "metadata", poster: v.poster });
+    vid.append(el("source", { src: v.video, type: "video/mp4" }));
+    fig.append(vid);
+  } else {
+    fig.append(el("img", { src: v.image, alt: "Two WHAT badges, round and matte black with stainless steel rims", width: "800", height: "450" }));
+  }
+  fig.append(el("figcaption", {}, v.caption));
+  media.append(fig);
+
+  const why = $("#why"); why.replaceChildren();
+  v.why.forEach(([h, p]) => { const d = el("div"); d.append(el("h3", {}, h), el("p", {}, p)); why.append(d); });
+
+  const faq = $("#faq"); faq.replaceChildren();
+  [...v.faq, ...SHARED_FAQ].forEach(([q, a]) => {
+    const d = el("details"); d.append(el("summary", {}, q), el("p", {}, a)); faq.append(d);
+  });
+
+  setupReserve();
+}
+
+function setupReserve() {
+  const btn = $("#reserveBtn");
+  if (CONFIG.reserveLink) {
+    const url = CONFIG.reserveLink + (CONFIG.reserveLink.includes("?") ? "&" : "?") + "client_reference_id=" + current;
+    btn.href = url; btn.target = "_blank"; btn.rel = "noopener";
+  } else {
+    btn.href = "#reserve"; btn.removeAttribute("target");
+  }
+}
+
+$("#reserveBtn").addEventListener("click", (e) => {
+  if (CONFIG.reserveLink) return;
+  e.preventDefault();
+  $("#reserveNotice").hidden = false;
+  $("#email-updates").focus();
+});
+
+document.querySelectorAll(".js-email").forEach((form) => {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const msg = form.querySelector(".form-msg");
+    const email = form.querySelector("input[type=email]");
+    if (!email.value || !email.checkValidity()) { msg.textContent = "Please enter a full email address, like name@example.com."; email.focus(); return; }
+    if (!CONFIG.emailEndpoint) { msg.textContent = "Sign-ups open soon. In the meantime, email bradntn@gmail.com and we’ll add you to the list."; return; }
+    const data = Object.fromEntries(new FormData(form));
+    data.list = form.dataset.kind; data.audience = current;
+    msg.textContent = "Sending…";
+    try {
+      const r = await fetch(CONFIG.emailEndpoint, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) });
+      if (!r.ok) throw new Error(r.status);
+      form.reset();
+      msg.textContent = form.dataset.kind === "agency" ? "Thanks. We’ll be in touch about agency pricing." : "You’re on the list. We’ll email you when WHAT™ is ready.";
+    } catch (err) {
+      msg.textContent = "That didn’t go through. Please try again, or email bradntn@gmail.com.";
+    }
+  });
+});
+
+$("#copyEmail").addEventListener("click", async () => {
+  const b = $("#copyEmail");
+  try { await navigator.clipboard.writeText($("#contactEmail").textContent); b.textContent = "Copied"; }
+  catch { const r = document.createRange(); r.selectNodeContents($("#contactEmail")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; }
+  setTimeout(() => (b.textContent = "Copy"), 2000);
+});
+
+// Survey card shows only once there's a survey link
+if (CONFIG.surveyLink) $("#surveyBtn").href = CONFIG.surveyLink; else $("#surveyCard").hidden = true;
+
+// Preview strip lists what still needs connecting
+const missing = [];
+if (!CONFIG.reserveLink) missing.push("the $10 reservation checkout");
+if (!CONFIG.emailEndpoint) missing.push("email sign-ups");
+if (!CONFIG.surveyLink) missing.push("the survey");
+if (missing.length && !/whatbadge\.com$/.test(location.hostname)) { $("#preview").hidden = false; $("#previewText").textContent = " Still to connect: " + missing.join(", ") + "."; }
+
+render("main");
+</script>
+
+</body>
+</html>
