@@ -1,0 +1,19 @@
+name: Stamp new site version
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  bump:
+    if: ${{ !contains(github.event.head_commit.message, '[version bump]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 bump.py
+      - run: |
+          git config user.name "whatbadge-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html version.json
+          git diff --cached --quiet || git commit -m "Stamp site version [version bump]"
+          git push
