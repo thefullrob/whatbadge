@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="site-version" content="20261113091437">
+<meta name="site-version" content="20261113093613">
 <script>
 /* Cache breaker: if a newer version of the site is published, load it fresh. */
 (function(){try{var cur=document.querySelector('meta[name="site-version"]').content;fetch('/version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){if(j&&j.v&&j.v!==cur){var u=new URL(location.href);if(u.searchParams.get('v')!==j.v){u.searchParams.set('v',j.v);location.replace(u.toString());}}}).catch(function(){});}catch(e){}})();
@@ -11,7 +11,7 @@
 <title>WHAT™ Badge</title>
 <meta property="og:title" content="WHAT™ | Talk from any room">
 <meta property="og:description" content="A small badge you wear. Say a name and talk, from anywhere in the house. Reserve a pair for $10, fully refundable.">
-<meta property="og:image" content="https://whatbadge.com/hero-badges.jpg?v=20261113091437">
+<meta property="og:image" content="https://whatbadge.com/hero-badges.jpg?v=20261113093613">
 <meta property="og:url" content="https://whatbadge.com/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -295,23 +295,23 @@ footer .wrap{padding-block:36px 120px;display:grid;gap:12px;font-size:1rem;color
       <p class="fine" style="margin-top:8px;color:var(--muted);font-size:1rem">Concept commercials. WHAT™ is in development.</p>
       <div class="ads">
         <figure>
-          <video controls playsinline preload="none" poster="poster-couples.jpg?v=20261113091437"><source src="ad-couples.mp4?v=20261113091437" type="video/mp4"></video>
+          <video controls playsinline preload="none" poster="poster-couples.jpg?v=20261113093613"><source src="ad-couples.mp4?v=20261113093613" type="video/mp4"></video>
           <figcaption><b>Help with the groceries</b><span>Julie’s unloading the car. Brad’s watching the game. She asks once, in a normal voice.</span></figcaption>
         </figure>
         <figure>
-          <video controls playsinline preload="none" poster="poster-caregiver.jpg?v=20261113091437"><source src="ad-caregiver.mp4?v=20261113091437" type="video/mp4"></video>
+          <video controls playsinline preload="none" poster="poster-caregiver.jpg?v=20261113093613"><source src="ad-caregiver.mp4?v=20261113093613" type="video/mp4"></video>
           <figcaption><b>Privacy, one word away</b><span>Mrs. Chen has the bathroom to herself while Rosa, her aide, folds laundry down the hall. When she’s ready, she just says Rosa’s name.</span></figcaption>
         </figure>
         <figure>
-          <video controls playsinline preload="none" poster="poster-family.jpg?v=20261113091437"><source src="ad-family.mp4?v=20261113091437" type="video/mp4"></video>
+          <video controls playsinline preload="none" poster="poster-family.jpg?v=20261113093613"><source src="ad-family.mp4?v=20261113093613" type="video/mp4"></video>
           <figcaption><b>The gift</b><span>Karen pins a badge on her mom. Mom says Dad’s name, and he answers from his study.</span></figcaption>
         </figure>
         <figure>
-          <video controls playsinline preload="none" poster="poster-tom-linda.jpg?v=20261113091437"><source src="ad-tom-linda.mp4?v=20261113091437" type="video/mp4"></video>
+          <video controls playsinline preload="none" poster="poster-tom-linda.jpg?v=20261113093613"><source src="ad-tom-linda.mp4?v=20261113093613" type="video/mp4"></video>
           <figcaption><b>Tom and Linda</b><span>Tom’s cooking in the kitchen. Linda’s in her chair in the den. They talk like they’re in the same room.</span></figcaption>
         </figure>
         <figure>
-          <video controls playsinline preload="none" poster="poster-hoh.jpg?v=20261113091437"><source src="ad-hoh.mp4?v=20261113091437" type="video/mp4"></video>
+          <video controls playsinline preload="none" poster="poster-hoh.jpg?v=20261113093613"><source src="ad-hoh.mp4?v=20261113093613" type="video/mp4"></video>
           <figcaption><b>Over the game</b><span>Ed’s game is blaring in the living room. Carol’s at her sewing machine in the next room, and she hears every word he says.</span></figcaption>
         </figure>
       </div>
@@ -320,7 +320,7 @@ footer .wrap{padding-block:36px 120px;display:grid;gap:12px;font-size:1rem;color
 
   <section class="band alt">
     <div class="wrap spec">
-      <img src="wearing-badge.jpg?v=20261113091437" alt="Helen and her daughter laughing at the kitchen table, Helen wearing her WHAT badge just above the left breast" width="1280" height="720" loading="lazy">
+      <img src="wearing-badge.jpg?v=20261113093613" alt="Helen and her daughter laughing at the kitchen table, Helen wearing her WHAT badge just above the left breast" width="1280" height="720" loading="lazy">
       <div>
         <h2 class="kicker">Two badges. One for each of you.</h2>
         <p class="lede">One badge needs another to talk to, so WHAT™ comes as a pair.</p>
@@ -401,7 +401,7 @@ footer .wrap{padding-block:36px 120px;display:grid;gap:12px;font-size:1rem;color
 /* ===== Fill these in to go live ===== */
 const CONFIG = {
   // Stripe Payment Link for the $10 reservation, e.g. "https://buy.stripe.com/abc123"
-  reserveLink: "",
+  reserveLink: "https://buy.stripe.com/dRm5kCgEa75T3BX5gtbo400",
   // Form endpoint that collects emails, e.g. a Formspree form "https://formspree.io/f/xxxxxxx"
   emailEndpoint: "",
   // Link to the two-minute survey, e.g. a Google Form
@@ -421,7 +421,7 @@ const VERSIONS = {
     eyebrow: "In-Home Direct Communication™",
     headline: "Talk to each other from anywhere in the house.",
     sub: "WHAT™ is a small badge you wear. Just say a name and start talking. They hear you clearly, whether they’re downstairs, in the garage, or out on the lanai.",
-    image: "hero-badges.jpg?v=20261113091437",
+    image: "hero-badges.jpg?v=20261113093613",
     caption: "A pair of WHAT™ badges, each about 2 inches across.",
     whyTitle: "Made for couples",
     why: [
