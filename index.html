@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="site-version" content="20261112194912">
+<meta name="site-version" content="20261112195451">
 <script>
 /* Cache breaker: if a newer version of the site is published, load it fresh. */
 (function(){try{var cur=document.querySelector('meta[name="site-version"]').content;fetch('/version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){if(j&&j.v&&j.v!==cur){var u=new URL(location.href);if(u.searchParams.get('v')!==j.v){u.searchParams.set('v',j.v);location.replace(u.toString());}}}).catch(function(){});}catch(e){}})();
@@ -11,7 +11,7 @@
 <title>WHAT™ Badge</title>
 <meta property="og:title" content="WHAT™ | Talk from any room">
 <meta property="og:description" content="A small badge you wear. Say a name and talk, from anywhere in the house. Reserve a pair for $10, fully refundable.">
-<meta property="og:image" content="https://whatbadge.com/hero-badges.jpg?v=20261112194912">
+<meta property="og:image" content="https://whatbadge.com/hero-badges.jpg?v=20261112195451">
 <meta property="og:url" content="https://whatbadge.com/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -283,7 +283,7 @@ footer .wrap{padding-block:36px 120px;display:grid;gap:12px;font-size:1rem;color
 
   <section class="band alt">
     <div class="wrap">
-      <h2 class="kicker" id="whyTitle">Why couples like it</h2>
+      <h2 class="kicker" id="whyTitle">Made for couples</h2>
       <div class="why" id="why"></div>
     </div>
   </section>
@@ -292,25 +292,26 @@ footer .wrap{padding-block:36px 120px;display:grid;gap:12px;font-size:1rem;color
     <div class="wrap">
       <h2 class="kicker">Watch the commercials</h2>
       <p class="lede">Five homes, two badges each, no shouting.</p>
+      <p class="fine" style="margin-top:8px;color:var(--muted);font-size:1rem">Concept commercials. WHAT™ is in development.</p>
       <div class="ads">
         <figure>
-          <video controls playsinline preload="none" poster="poster-couples.jpg?v=20261112194912"><source src="ad-couples.mp4?v=20261112194912" type="video/mp4"></video>
+          <video controls playsinline preload="none" poster="poster-couples.jpg?v=20261112195451"><source src="ad-couples.mp4?v=20261112195451" type="video/mp4"></video>
           <figcaption><b>Help with the groceries</b><span>Julie’s unloading the car. Brad’s watching the game. She asks once, in a normal voice.</span></figcaption>
         </figure>
         <figure>
-          <video controls playsinline preload="none" poster="poster-caregiver.jpg?v=20261112194912"><source src="ad-caregiver.mp4?v=20261112194912" type="video/mp4"></video>
+          <video controls playsinline preload="none" poster="poster-caregiver.jpg?v=20261112195451"><source src="ad-caregiver.mp4?v=20261112195451" type="video/mp4"></video>
           <figcaption><b>Privacy, one word away</b><span>Mrs. Chen closes the bathroom door for some privacy. Rosa, her aide, waits in the laundry room. When Mrs. Chen is ready, she just says Rosa’s name.</span></figcaption>
         </figure>
         <figure>
-          <video controls playsinline preload="none" poster="poster-family.jpg?v=20261112194912"><source src="ad-family.mp4?v=20261112194912" type="video/mp4"></video>
+          <video controls playsinline preload="none" poster="poster-family.jpg?v=20261112195451"><source src="ad-family.mp4?v=20261112195451" type="video/mp4"></video>
           <figcaption><b>The gift</b><span>Karen pins a badge on her mom. Mom says Dad’s name, and he answers from his study.</span></figcaption>
         </figure>
         <figure>
-          <video controls playsinline preload="none" poster="poster-tom-linda.jpg?v=20261112194912"><source src="ad-tom-linda.mp4?v=20261112194912" type="video/mp4"></video>
+          <video controls playsinline preload="none" poster="poster-tom-linda.jpg?v=20261112195451"><source src="ad-tom-linda.mp4?v=20261112195451" type="video/mp4"></video>
           <figcaption><b>Tom and Linda</b><span>Tom’s cooking in the kitchen. Linda’s in her chair in the den. They talk like they’re in the same room.</span></figcaption>
         </figure>
         <figure>
-          <video controls playsinline preload="none" poster="poster-hoh.jpg?v=20261112194912"><source src="ad-hoh.mp4?v=20261112194912" type="video/mp4"></video>
+          <video controls playsinline preload="none" poster="poster-hoh.jpg?v=20261112195451"><source src="ad-hoh.mp4?v=20261112195451" type="video/mp4"></video>
           <figcaption><b>Over the game</b><span>Ed’s game is blaring in the living room. Carol’s at her sewing machine in the next room, and she hears every word he says.</span></figcaption>
         </figure>
       </div>
@@ -319,7 +320,7 @@ footer .wrap{padding-block:36px 120px;display:grid;gap:12px;font-size:1rem;color
 
   <section class="band alt">
     <div class="wrap spec">
-      <img src="wearing-badge.jpg?v=20261112194912" alt="Helen and her daughter laughing at the kitchen table, Helen wearing her WHAT badge just above the left breast" width="1280" height="720" loading="lazy">
+      <img src="wearing-badge.jpg?v=20261112195451" alt="Helen and her daughter laughing at the kitchen table, Helen wearing her WHAT badge just above the left breast" width="1280" height="720" loading="lazy">
       <div>
         <h2 class="kicker">Two badges. One for each of you.</h2>
         <p class="lede">One badge needs another to talk to, so WHAT™ comes as a pair.</p>
@@ -411,7 +412,7 @@ const CONFIG = {
 const SHARED_FAQ = [
   ["How does WHAT™ know who’s talking?", "Each badge learns its wearer’s voice. When you say someone’s name, your message goes only to them, and their badge confirms it’s really you. It works both ways, every time."],
   ["Is the $10 reservation refundable?", "Yes, fully and at any time. Just email us. Reserving locks in our best launch price; there’s no obligation to buy."],
-  ["When will WHAT™ ship?", "We’re finishing the production design now. Reservation holders will hear first, and no one is charged the full price until we have a ship date."],
+  ["When will WHAT™ ship?", "WHAT™ is in development now. Reservation holders will hear first, and no one is charged the full price until we have a ship date."],
   ["What do you do with my email?", "We use it only to send WHAT™ updates. We never sell or share it."]
 ];
 
@@ -420,9 +421,9 @@ const VERSIONS = {
     eyebrow: "In-Home Direct Communication™",
     headline: "Talk to each other from anywhere in the house.",
     sub: "WHAT™ is a small badge you wear. Just say a name and start talking. They hear you clearly, whether they’re downstairs, in the garage, or out on the lanai.",
-    image: "hero-badges.jpg?v=20261112194912",
+    image: "hero-badges.jpg?v=20261112195451",
     caption: "A pair of WHAT™ badges, each about 2 inches across.",
-    whyTitle: "Why couples like it",
+    whyTitle: "Made for couples",
     why: [
       ["No more shouting between rooms", "Say their name and talk in a normal voice. That’s it."],
       ["Nothing to set up", "No phone, no app, no Wi-Fi. Two badges talk to each other, and that’s it."],
