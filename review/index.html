@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>WHAT™ Ad Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap">
+<style>
+:root{
+  --paper:#F2F0EB; --paper-2:#E8E5DE; --ink:#151719; --muted:#565B60; --green:#1F6F43; --green-ink:#FFFFFF;
+  --line:rgba(21,23,25,.14); --card:#FBFAF7; --orange:#B93B0E;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Verdana","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--paper:#121416;--paper-2:#1A1D20;--ink:#ECEAE5;--muted:#AEB3B7;--green:#4FB27D;--green-ink:#0D1A12;--line:rgba(236,234,229,.16);--card:#1C1F22;--orange:#E07A4F;color-scheme:dark}
+}
+:root[data-theme="dark"]{--paper:#121416;--paper-2:#1A1D20;--ink:#ECEAE5;--muted:#AEB3B7;--green:#4FB27D;--green-ink:#0D1A12;--line:rgba(236,234,229,.16);--card:#1C1F22;--orange:#E07A4F;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.1875rem/1.55 var(--body)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+header{padding:48px 0 8px}
+.tag{display:inline-block;background:var(--green);color:var(--green-ink);font:700 .9rem/1 var(--body);padding:8px 12px;border-radius:6px;letter-spacing:.02em}
+h1{font:800 clamp(2.2rem,6vw,3.4rem)/1.05 var(--display);margin:16px 0 12px;letter-spacing:-.01em}
+h2{font:800 clamp(1.6rem,4vw,2.2rem)/1.1 var(--display);margin:56px 0 6px}
+.lede{max-width:46rem;color:var(--muted);margin:0}
+.steps{max-width:46rem;margin:20px 0 0;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.steps ol{margin:0;padding-left:1.3em}
+.steps li+li{margin-top:6px}
+.grid{display:grid;gap:22px;margin-top:22px}
+.videos{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.images{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.card video{display:block;width:100%;aspect-ratio:9/16;background:#000;object-fit:cover}
+.card img{display:block;width:100%;height:auto}
+.meta{padding:14px 16px 18px}
+.num{font:800 .95rem/1 var(--display);color:var(--orange);letter-spacing:.04em}
+.meta h3{font:700 1.3rem/1.2 var(--display);margin:6px 0 4px}
+.meta p{margin:0;color:var(--muted);font-size:1rem;line-height:1.45}
+.len{font-weight:700;color:var(--ink)}
+footer{margin:64px 0 0;padding:28px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:1rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">For Brad and Rick</span>
+  <h1>WHAT™ ad review</h1>
+  <p class="lede">These are the phone versions of the ads for the test. All of them have captions, since most people scroll with the sound off. Tap a video to play it.</p>
+  <div class="steps"><ol>
+    <li>Watch all five videos.</li>
+    <li>Pick your <b>top three</b>.</li>
+    <li>Pick the image ad (or ads) you like best.</li>
+    <li>Reply to Rob's email with your picks and any notes.</li>
+  </ol></div>
+</header>
+
+<h2>Videos</h2>
+<p class="lede">Each one shows a home before and after WHAT™, with a narrator.</p>
+<div class="grid videos">
+  <div class="card"><video controls playsinline preload="none" poster="poster-groceries.jpg?v=20261122"><source src="ad-groceries.mp4?v=20261122" type="video/mp4"></video>
+    <div class="meta"><div class="num">VIDEO 1</div><h3>Groceries</h3><p><span class="len">28 sec.</span> Julie can't get Brad's attention from the garage. With WHAT™, he hears her the first time.</p></div></div>
+  <div class="card"><video controls playsinline preload="none" poster="poster-over-the-game.jpg?v=20261122"><source src="ad-over-the-game.mp4?v=20261122" type="video/mp4"></video>
+    <div class="meta"><div class="num">VIDEO 2</div><h3>Over the Game</h3><p><span class="len">21 sec.</span> Ed's TV is too loud for Carol to hear him. With WHAT™, she hears him and not the TV.</p></div></div>
+  <div class="card"><video controls playsinline preload="none" poster="poster-privacy.jpg?v=20261122"><source src="ad-privacy.mp4?v=20261122" type="video/mp4"></video>
+    <div class="meta"><div class="num">VIDEO 3</div><h3>Privacy, One Word Away</h3><p><span class="len">19 sec.</span> Mrs. Chen keeps her privacy, and her aide Rosa is one word away.</p></div></div>
+  <div class="card"><video controls playsinline preload="none" poster="poster-gift.jpg?v=20261122"><source src="ad-gift.mp4?v=20261122" type="video/mp4"></video>
+    <div class="meta"><div class="num">VIDEO 4</div><h3>The Gift</h3><p><span class="len">18 sec.</span> A daughter gives her parents a pair. Mom says "George?" and he answers.</p></div></div>
+  <div class="card"><video controls playsinline preload="none" poster="poster-tom-linda.jpg?v=20261122"><source src="ad-tom-linda.mp4?v=20261122" type="video/mp4"></video>
+    <div class="meta"><div class="num">VIDEO 5</div><h3>Tom and Linda</h3><p><span class="len">17 sec.</span> Tom says "dinner's ready" once, and Linda hears it upstairs.</p></div></div>
+</div>
+
+<h2>Image ads</h2>
+<p class="lede">Still ads for the feed. Each also comes in a tall version for Stories.</p>
+<div class="grid images">
+  <div class="card"><img src="img-product.jpg?v=20261122" alt="Image ad 1: two WHAT badges with 'Talk to each other from anywhere in the house' and a reserve button" loading="lazy">
+    <div class="meta"><div class="num">IMAGE A</div><h3>The product</h3></div></div>
+  <div class="card"><img src="img-over-the-game.jpg?v=20261122" alt="Image ad 2: man watching a ball game wearing a WHAT badge, 'TV too loud to talk?'" loading="lazy">
+    <div class="meta"><div class="num">IMAGE B</div><h3>Over the Game</h3></div></div>
+  <div class="card"><img src="img-gift.jpg?v=20261122" alt="Image ad 3: mother receiving a WHAT badge, 'The easiest gift they'll ever use'" loading="lazy">
+    <div class="meta"><div class="num">IMAGE C</div><h3>The Gift</h3></div></div>
+</div>
+
+<footer>This page is for review only and isn't linked from the main site.</footer>
+</div>
+</body>
+</html>
