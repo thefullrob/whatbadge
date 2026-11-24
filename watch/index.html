@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>WHAT™ Commercials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap">
+<style>
+:root{
+  --paper:#F2F0EB; --paper-2:#E8E5DE; --ink:#151719; --muted:#565B60; --green:#1F6F43; --green-ink:#FFFFFF;
+  --line:rgba(21,23,25,.14); --card:#FBFAF7; --orange:#B93B0E;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Verdana","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--paper:#121416;--paper-2:#1A1D20;--ink:#ECEAE5;--muted:#AEB3B7;--green:#4FB27D;--green-ink:#0D1A12;--line:rgba(236,234,229,.16);--card:#1C1F22;--orange:#E07A4F;color-scheme:dark}
+}
+:root[data-theme="dark"]{--paper:#121416;--paper-2:#1A1D20;--ink:#ECEAE5;--muted:#AEB3B7;--green:#4FB27D;--green-ink:#0D1A12;--line:rgba(236,234,229,.16);--card:#1C1F22;--orange:#E07A4F;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.1875rem/1.55 var(--body)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+header{padding:48px 0 8px}
+.tag{display:inline-block;background:var(--green);color:var(--green-ink);font:700 .9rem/1 var(--body);padding:8px 12px;border-radius:6px;letter-spacing:.02em}
+h1{font:800 clamp(2.2rem,6vw,3.4rem)/1.05 var(--display);margin:16px 0 12px;letter-spacing:-.01em}
+h2{font:800 clamp(1.6rem,4vw,2.2rem)/1.1 var(--display);margin:56px 0 6px}
+.lede{max-width:46rem;color:var(--muted);margin:0}
+.steps{max-width:46rem;margin:20px 0 0;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.steps ol{margin:0;padding-left:1.3em}
+.steps li+li{margin-top:6px}
+.grid{display:grid;gap:22px;margin-top:22px}
+.ideas{display:grid;gap:28px;margin-top:22px;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr))}
+.idea{background:var(--paper-2);border-radius:18px;padding:18px}
+.idea-head h3{font:800 1.5rem/1.15 var(--display);margin:6px 0 4px}
+.idea-head p{margin:0 0 14px;color:var(--muted);font-size:1rem;line-height:1.45}
+.idea-num{font:800 .95rem/1 var(--display);color:var(--orange);letter-spacing:.04em}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card.empty{justify-content:center;aspect-ratio:9/16;border-style:dashed}
+.pair .meta{padding:10px 12px 12px}
+.images{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.card video{display:block;width:100%;aspect-ratio:9/16;background:#000;object-fit:cover}
+.card img{display:block;width:100%;height:auto}
+.meta{padding:14px 16px 18px}
+.num{font:800 .95rem/1 var(--display);color:var(--orange);letter-spacing:.04em}
+.meta h3{font:700 1.3rem/1.2 var(--display);margin:6px 0 4px}
+.meta p{margin:0;color:var(--muted);font-size:1rem;line-height:1.45}
+.len{font-weight:700;color:var(--ink)}
+footer{margin:64px 0 0;padding:28px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:1rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="tag">WHAT™</span>
+  <h1>Just say a name.</h1>
+  <p class="lede">WHAT™ is a small badge you wear. Say someone's name and talk to them from anywhere in the house. No phone, no app, no Wi-Fi. Here are two of our commercials, each in a longer version with a narrator and a short 15 second version. Tap a video to play it.</p>
+</header>
+<div class="ideas">
+  <section class="idea">
+    <div class="idea-head"><h3>Groceries</h3><p>Julie can't get Brad's attention from the garage. With WHAT™, he hears her the first time.</p></div>
+    <div class="pair">
+      <div class="card"><video controls playsinline preload="metadata" poster="../review/poster-groceries.jpg?v=20261124"><source src="../review/ad-groceries.mp4?v=20261124" type="video/mp4"></video><div class="meta"><div class="num">WITH NARRATOR</div><p><span class="len">28 sec</span></p></div></div>
+      <div class="card"><video controls playsinline preload="metadata" poster="../review/poster-groceries-15.jpg?v=20261124"><source src="../review/ad-groceries-15.mp4?v=20261124" type="video/mp4"></video><div class="meta"><div class="num">15 SECONDS</div><p><span class="len">15 sec</span></p></div></div>
+    </div>
+  </section>
+  <section class="idea">
+    <div class="idea-head"><h3>The Gift</h3><p>A daughter gives her parents a pair. Mom says "George?" and he answers.</p></div>
+    <div class="pair">
+      <div class="card"><video controls playsinline preload="metadata" poster="../review/poster-gift.jpg?v=20261124"><source src="../review/ad-gift.mp4?v=20261124" type="video/mp4"></video><div class="meta"><div class="num">WITH NARRATOR</div><p><span class="len">18 sec</span></p></div></div>
+      <div class="card"><video controls playsinline preload="metadata" poster="../review/poster-gift-15.jpg?v=20261124"><source src="../review/ad-gift-15.mp4?v=20261124" type="video/mp4"></video><div class="meta"><div class="num">15 SECONDS</div><p><span class="len">14 sec</span></p></div></div>
+    </div>
+  </section>
+</div>
+<footer>Learn more and reserve a pair for $10 (fully refundable) at <a href="https://whatbadge.com/" style="color:inherit">whatbadge.com</a>.</footer>
+</div>
+</body>
+</html>
